@@ -1,7 +1,7 @@
 # NestedScrollCoordinatorLayout
 
 ```groovy
-compile 'com.otaliastudios:nestedscrollcoordinatorlayout:1.0.3'
+compile 'com.github.evilbunny2008:NestedScrollCoordinatorLayout:1.0.4'
 ```
 
 A `CoordinatorLayout` that implements nested scrolling and propagates scroll events to parent views.
@@ -24,7 +24,7 @@ Just use `NestedScrollCoordinatorLayout` as the inner `CoordinatorLayout`.
     <!-- stuff... -->
     
     <!-- inner coordinator with stuff inside -->
-    <com.otaliastudios.nestedscrollcoordinatorlayout.NestedScrollCoordinatorLayout
+    <com.github.evilbunny2008.NestedScrollCoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>   
     

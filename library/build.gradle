@@ -1,0 +1,65 @@
+plugins {
+	id 'com.android.library'
+	id 'maven-publish'
+}
+
+afterEvaluate {
+	publishing {
+		publications {
+			release(MavenPublication) {
+				from components.release
+				groupId = 'com.github.evilbunny2008'
+				artifactId = 'NestedScrollCoordinatorLayout'
+				version = '1.0.4'
+			}
+		}
+	}
+}
+
+android {
+	compileSdk = 37
+	defaultConfig {
+		minSdk = 24
+		targetSdk = 37
+		version = '1.0.4'
+		versionCode = 1000004
+	}
+
+	buildTypes {
+		release {
+			minifyEnabled = false
+			shrinkResources = false
+		}
+
+		debug {
+			minifyEnabled = false
+			shrinkResources = false
+		}
+	}
+
+	compileOptions {
+		sourceCompatibility JavaVersion.VERSION_21
+		targetCompatibility JavaVersion.VERSION_21
+	}
+
+	tasks.withType(JavaCompile).configureEach {
+		options.compilerArgs += ['-Xlint:deprecation']
+	}
+
+	publishing {
+		singleVariant('release') {
+			withSourcesJar()
+		}
+	}
+
+	namespace = 'com.github.evilbunny2008.NestedScrollCoordinatorLayout'
+}
+
+dependencies {
+	implementation fileTree(include: ['*.jar'], dir: 'libs')
+	implementation('com.google.android.material:material:1.14.0')
+}
+
+tasks.withType(Test).configureEach {
+	enabled = false
+}
