@@ -10,7 +10,7 @@ afterEvaluate {
 				from components.release
 				groupId = 'com.github.evilbunny2008'
 				artifactId = 'NestedScrollCoordinatorLayout'
-				version = '1.0.4'
+				version = '1.0.5'
 			}
 		}
 	}
@@ -21,20 +21,9 @@ android {
 	defaultConfig {
 		minSdk = 24
 		targetSdk = 37
-		version = '1.0.4'
-		versionCode = 1000004
-	}
-
-	buildTypes {
-		release {
-			minifyEnabled = false
-			shrinkResources = false
-		}
-
-		debug {
-			minifyEnabled = false
-			shrinkResources = false
-		}
+		versionCode = 1000005
+		version = '1.0.5'
+		consumerProguardFiles("consumer-rules.pro")
 	}
 
 	compileOptions {
@@ -47,8 +36,14 @@ android {
 	}
 
 	publishing {
-		singleVariant('release') {
+		singleVariant("release") {
 			withSourcesJar()
+		}
+	}
+
+	buildTypes {
+		release {
+			minifyEnabled = false
 		}
 	}
 
